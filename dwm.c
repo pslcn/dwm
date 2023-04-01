@@ -759,13 +759,14 @@ drawbar(Monitor *m)
 	}
 	x = 0;
 
-	for (i = 0; i < LENGTH(tags); i++) {
-		if (m->tagset[m->seltags] & 1 << i) { /* if current tag */
+	/* Show current tags on status bar */
+	drw_setscheme(drw, scheme[SchemeNorm]);
+	for (i = 0; i < LENGTH(tags); ++i) {
+		if (m->tagset[m->seltags] & 1 << i) {
 			w = TEXTW(tags[i]);
-			drw_setscheme(drw, scheme[SchemeNorm]);
-			drw_text(drw, x, 0, w, bh, lrpad / 2, tags[i], urg & 1 << i);
+			drw_text(drw, x, 0, w, bh, lrpad / 2, tags[i], 0);
 			x += w;
-		} 
+		}
 	}
 
 	if ((w = m->ww - tw - x) > bh) {
@@ -2231,3 +2232,4 @@ main(int argc, char *argv[])
 	XCloseDisplay(dpy);
 	return EXIT_SUCCESS;
 }
+
