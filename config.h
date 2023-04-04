@@ -83,6 +83,9 @@ static Key keys[] = {
 	{ MODKEY,												XK_p,			 spawn,					 {.v = termcmd } },
 	{ MODKEY,												XK_y,	     spawn,					 {.v = firefox } },
 	{ MODKEY,												XK_w,      spawn,          {.v = dmenucmd } },
+
+	{ MODKEY,												XK_comma,  spawn,          SHCMD("find docs -type f | dmenu | xargs -r blist") },
+	{ MODKEY,												XK_period, spawn,					 {.v = (const char*[]){ "blist", "docs/notes/bookmarks.txt", NULL } } },
  
 	TAGKEYS(                        XK_u,                      0)
 	TAGKEYS(                        XK_i,                      1)
