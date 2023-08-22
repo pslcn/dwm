@@ -84,8 +84,9 @@ static Key keys[] = {
 	{ MODKEY,												XK_y,	     spawn,					 {.v = firefox } },
 	{ MODKEY,												XK_w,      spawn,          {.v = dmenucmd } },
 
-	{ MODKEY,												XK_comma,  spawn,          SHCMD("find docs -type f | dmenu | xargs -r blist") },
+	/* { MODKEY,												XK_comma,  spawn,          SHCMD("find docs -type f | dmenu | xargs -r blist") }, */
 	{ MODKEY,												XK_period, spawn,					 {.v = (const char*[]){ "blist", "docs/notes/bookmarks.txt", NULL } } },
+  { MODKEY,                       XK_comma,  spawn,          SHCMD("find ~/Downloads -type f \\( -iname '*.JPG' -o -iname '*.PNG' \\) | dmenu -l 4 | xargs -r xwallpaper --zoom") },
 
 	{ MODKEY,												XK_s,			 spawn,					 SHCMD("amixer sset Master 62%") },
  
